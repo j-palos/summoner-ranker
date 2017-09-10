@@ -16,12 +16,19 @@ class RiotAPI(object):
             ),
         params=args
             )
-        print(response.url)
+        # print(response.url)
         return response.json()
 
     def get_summoner_by_name(self, name):
         api_url = Consts.URL['summoner_by_name'].format(
             version=Consts.API_VERSIONS['summoner'],
             names=name
+        )
+        return self._request(api_url)
+
+    def get_summoner_rank(self, summID):
+        api_url = Consts.URL['get_summoner_rank'].format(
+            version=Consts.API_VERSIONS['leagues'],
+            summIDS=summID
         )
         return self._request(api_url)
