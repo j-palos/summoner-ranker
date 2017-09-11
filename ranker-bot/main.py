@@ -1,3 +1,4 @@
+# /usr/bin/env python
 from RiotAPI import RiotAPI
 import RiotConsts as Consts
 from Player import Player
@@ -10,18 +11,17 @@ def main():
         #     print(line)
     ppl = {}
     for name in lines:
-        # print(name)
         ppl[name] = Player(name)
-        # print(ppl['name'])
-    # for player in ppl:
-    #     print(ppl[player])
-    # for player in (sorted(ppl.values(), key=operator.attrgetter('rank'))):
-    #     print(player)
-
+    place = 1
     with open('sorted-players.txt', encoding='utf-16', mode='w') as f:
         sortedppl = sorted(ppl.values(), key=operator.attrgetter('rank'), reverse=True)
         for x in sortedppl:
+            f.write(str(place) + ". ")
             f.write((str(x) + "\n"))
+            place += 1
+            if place == 11:
+                f.write("--------------------------------------------------------\n")
+
 
 if __name__ == "__main__":
     main()
