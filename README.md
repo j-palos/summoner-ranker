@@ -1,8 +1,11 @@
 # summoner-ranker
 Will automatically rank and display the players of the UT Diamond+ discord server.
 
-Currently takes, as input, a file named "players.txt" and outputs a descending ranked order of players
+Currently takes, as input, a file named "players.txt", a plain text file with summoner names seperated by new lines, and outputs a descending ranked order of players
 to a file named "sorted-players.txt". 
+
+You will need to provide your own riot api dev key in a file called RiotConsts.py and configure the api calls for your region.
+Later I'll add the ability to drag and drop region names.
 
 !Important! There is currently NO error checking implemented, so if an api call returns invalid data, 
 ie the summoner doesn't exist and so there is no summoner ID, the program will crash. This needs to be fixed asap for production
